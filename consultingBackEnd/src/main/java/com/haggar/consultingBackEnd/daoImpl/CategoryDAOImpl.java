@@ -51,7 +51,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public List<Category> list() {
 		// TODO Auto-generated method stub
-		return null;
+		return categories;
 	}
 
 	@Override

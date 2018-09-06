@@ -6,12 +6,7 @@
             <div class="col-md-3">
             
             	<%@include file="./partage/sidebar.jsp" %>
-               <%-- <p class="lead">Shop name </p>
-                <div class="list-group">
-					<a href="#" class="list-group-item">${category.name}</a> 
-					<a href="#" class="list-group-item">${category.name}</a> 
-					<a href="#" class="list-group-item">${category.name}</a>                
-                </div>  --%>
+               
             </div>
 
             <div class="col-md-9">
