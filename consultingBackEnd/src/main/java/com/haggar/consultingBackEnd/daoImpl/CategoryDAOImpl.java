@@ -79,7 +79,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	public boolean add(Category category) {
 		try {
 			
-	//	sessionFactory.getCurrentSession().persist(category);
+		//sessionFactory.getCurrentSession().persist(category);
 			
 			return true;
 			

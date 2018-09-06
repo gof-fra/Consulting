@@ -1,16 +1,17 @@
 package com.haggar.consultingBackEnd.test;
 
-/*import static org.junit.Assert.assertEquals;
 
-import  org.junit.BeforeClass;
-import  org.junit.Test;*/
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.haggar.consultingBackEnd.dao.CategoryDAO;
 import com.haggar.consultingBackEnd.dto.Category;
 
-public class CategoryTestCase {
+	public class CategoryTestCase {
 	
 	private static AnnotationConfigApplicationContext context;
 	
@@ -20,7 +21,7 @@ public class CategoryTestCase {
 	
 	private Category  category;
 	
-	/*@BeforeClass
+	@BeforeClass
 	public static void init() {
 		
 		context = new AnnotationConfigApplicationContext();
@@ -30,9 +31,8 @@ public class CategoryTestCase {
 		
 		categoryDAO = (CategoryDAO)context.getBean("categoryDAO");
 		
-	}*/
+	}
 	
-	/*
 	
 	
 	@Test
@@ -46,6 +46,6 @@ public class CategoryTestCase {
 		
 		assertEquals("Successfully added a category on the table!", true, categoryDAO.add(category));
 		
-	}*/
+	}
 
 }
