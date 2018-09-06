@@ -47,12 +47,28 @@ public class CategoryDAOImpl implements CategoryDAO {
 		categories.add(category);
 		
 	}
-	
-	
+
 	@Override
 	public List<Category> list() {
 		// TODO Auto-generated method stub
-		return categories;
+		return null;
 	}
+
+	@Override
+	public Category get(int id) {
+		// TODO Auto-generated method stub
+		
+		for(Category category : categories) {
+			
+			if(category.getId() == id )
+				return category;
+			
+		}
+		
+		return null;
+	}
+	
+	
+	
 
 }

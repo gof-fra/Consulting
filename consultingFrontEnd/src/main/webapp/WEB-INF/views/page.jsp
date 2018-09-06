@@ -50,15 +50,19 @@
 		   <div class="content">
 				   <!-- Home -->
 				   <c:if test="${userClickHome == true}">
-				   <%@include file="home.jsp" %>
+				  	 <%@include file="home.jsp" %>
 				   </c:if>
 				   
 				   <c:if test="${userClickAbout == true}">
-				   <%@include file="about.jsp" %>
+				 	  <%@include file="about.jsp" %>
 				   </c:if>
 				   
 				   <c:if test="${userClickContact == true}">
-				   <%@include file="contact.jsp" %>
+				  	 <%@include file="contact.jsp" %>
+				   </c:if>
+				   
+				   <c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+				  	 <%@include file="listProducts.jsp" %>
 				   </c:if>
 		   
 		   </div>

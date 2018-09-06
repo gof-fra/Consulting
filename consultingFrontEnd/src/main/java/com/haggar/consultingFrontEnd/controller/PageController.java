@@ -2,10 +2,12 @@ package com.haggar.consultingFrontEnd.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.haggar.consultingBackEnd.dao.CategoryDAO;
+import com.haggar.consultingBackEnd.dto.Category;
 
 @Controller
 public class PageController {
@@ -42,6 +44,51 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Contact Us");
 		mv.addObject("userClickContact", true);
+		
+		
+		return mv;
+	}
+	
+	/*
+	 * Methode to load all the products and based on category
+	 * */
+	
+	@RequestMapping( value = "/show/all/products")
+	public ModelAndView showAllProducts() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "All Products");
+		
+		// passing the first categories
+		mv.addObject("categories", categoryDAO.list());
+		
+		mv.addObject("userClickAllProducts", true);
+		
+		
+		return mv;
+	}
+	
+	
+	@RequestMapping( value = "/show/category/{id}/products")
+	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
+		ModelAndView mv = new ModelAndView("page");
+		
+		// category for a single product
+		
+		Category category = null;
+		category = categoryDAO.get(id);
+		
+		
+		
+		mv.addObject("title", category.getName());
+		
+		// passing the list categories
+		mv.addObject("categories", categoryDAO.list());
+		
+		// passing the simple category
+		mv.addObject("category", category);
+		
+		
+		mv.addObject("userClickCategoryProducts", true);
 		
 		
 		return mv;
