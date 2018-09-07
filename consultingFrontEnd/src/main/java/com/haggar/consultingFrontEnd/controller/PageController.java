@@ -13,14 +13,16 @@ import com.haggar.consultingBackEnd.dto.Category;
 public class PageController {
 	
 	@Autowired
-	private CategoryDAO categoryDAO;
+	private CategoryDAO categoryDAO; 
+	
 	
 	@RequestMapping( value = {"/", "/home", "/index"})
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Home");
 		
-		// passing the first categories
+		// passing the first category
+		
 		mv.addObject("categories", categoryDAO.list());
 		
 		mv.addObject("userClickHome", true);
@@ -28,6 +30,7 @@ public class PageController {
 		
 		return mv;
 	}
+	
 	
 	@RequestMapping( value = {"/about"})
 	public ModelAndView about() {
@@ -58,7 +61,8 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "All Products");
 		
-		// passing the first categories
+		// passing the list of category
+		
 		mv.addObject("categories", categoryDAO.list());
 		
 		mv.addObject("userClickAllProducts", true);
@@ -73,18 +77,18 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		
 		// category for a single product
-		
 		Category category = null;
+		
 		category = categoryDAO.get(id);
-		
-		
 		
 		mv.addObject("title", category.getName());
 		
-		// passing the list categories
+		// passing the list of categories
+		
 		mv.addObject("categories", categoryDAO.list());
 		
-		// passing the simple category
+		// single category object
+		
 		mv.addObject("category", category);
 		
 		
