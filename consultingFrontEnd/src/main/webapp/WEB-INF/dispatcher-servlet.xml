@@ -19,7 +19,7 @@
    ">
    
  	<context:component-scan base-package="com.haggar.consultingFrontEnd.controller" />
- 	<context:component-scan base-package="com.haggar.consultingBackEnd.daoImpl" />
+ 	<context:component-scan base-package="com.haggar.consultingBackEnd"/>
  	
  	
  	<bean id="viewResolver"
