@@ -19,5 +19,6 @@ $(function() {
 	}
 	
 	
+	// code for jquey
 	
 });

@@ -10,123 +10,93 @@ import org.springframework.transaction.annotation.Transactional;
 import com.haggar.consultingBackEnd.dao.ProductDAO;
 import com.haggar.consultingBackEnd.dto.Product;
 
-
 @Repository("productDAO")
-@Transactional(noRollbackFor = Exception.class)
+@Transactional
 public class ProductDAOImpl implements ProductDAO {
 	
-	
-	
 	@Autowired
-	private SessionFactory sessionFactory; 
+	private SessionFactory sessionFactory;
 	
+	/****************************************
+	 * 					*					*
+	 * single product	*	   😂😂😂		*
+	 * 					*					*
+	 ***************************************/
+
+	@Override
+	public Product get(int productId) {
+		try {
+			return
+					sessionFactory
+						.getCurrentSession()
+							.get(Product.class, Integer.valueOf(productId));
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
 	
 	// List
-	
 	
 	@Override
 	public List<Product> list() {
 		
-		return
-				sessionFactory
-					.getCurrentSession()
-						.createQuery("FROM Product", Product.class)
-							.getResultList();
-		
+			return
+					sessionFactory
+						.getCurrentSession()
+							.createQuery("From Product", Product.class)
+								.getResultList();
+			
 		
 	}
-	
-	
-	
-	// single
-
-	@Override
-	public Product get(int productId) {
-		
-		try {
-			
-			return sessionFactory
-					.getCurrentSession()
-						.get(Product.class, Integer.valueOf(productId));
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			
-		}
-		
-		return null;
-	}
-	
 	
 	// Insert
-	
 
 	@Override
 	public boolean add(Product product) {
-		
-		try {
-			
-			sessionFactory
-				.getCurrentSession()
-					.persist(product);
-			
+		try { 
+					sessionFactory
+						.getCurrentSession()
+							.persist(product);
 			return true;
 			
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-		
 		return false;
-		
 	}
 	
+	// Update
 	
-	// update
-	
-
 	@Override
 	public boolean update(Product product) {
-		
 		try {
+				sessionFactory
+					.getCurrentSession()
+						.update(product);
+				
+				return true;
 			
-			sessionFactory
-			.getCurrentSession()
-				.update(product);
-		
-		return true;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-		
 		return false;
 	}
-	
-	
-	// delete
-	
 
 	@Override
 	public boolean delete(Product product) {
-		
 		try {
 			
 			product.setActive(false);
-			
+			// call the update method
 			return this.update(product);
 			
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-		
 		return false;
 	}
-	
-	
 
 	@Override
 	public List<Product> listActiveProducts() {
@@ -136,7 +106,6 @@ public class ProductDAOImpl implements ProductDAO {
 						.createQuery(selectActiveProducts, Product.class)
 							.setParameter("active", true)
 								.getResultList();
-		
 	}
 
 	@Override
@@ -146,9 +115,8 @@ public class ProductDAOImpl implements ProductDAO {
 					.getCurrentSession()
 						.createQuery(selectActiveProductsByCategory, Product.class)
 							.setParameter("active", true)
-								.setParameter("categoryId", categoryId)
-									.getResultList();
-		
+							.setParameter("categoryId", categoryId)
+								.getResultList();
 	}
 
 	@Override
@@ -158,8 +126,8 @@ public class ProductDAOImpl implements ProductDAO {
 					.createQuery("FROM Product WHERE active = :active ORDER BY id", Product.class)
 						.setParameter("active", true)
 							.setFirstResult(0)
-								.setMaxResults(count)
-									.getResultList();
+							.setMaxResults(count)
+								.getResultList();
 	}
 
 }

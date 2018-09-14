@@ -1,7 +1,5 @@
 package com.haggar.consultingBackEnd.test;
 
-
-
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
@@ -13,66 +11,81 @@ import com.haggar.consultingBackEnd.dto.Product;
 
 public class ProductTestCase {
 	
-private static AnnotationConfigApplicationContext context;
+	private static AnnotationConfigApplicationContext context;
 	
 	private static ProductDAO productDAO;
 	
 	private Product product;
 	
-	
 	@BeforeClass
-	public static void init() {
+	public static void unit() {
 		
 		context = new AnnotationConfigApplicationContext();
 		context.scan("com.haggar.consultingBackEnd");
 		context.refresh();
-		
-		productDAO = (ProductDAO)context.getBean("productDAO");
+		productDAO = (ProductDAO) context.getBean("productDAO");
 		
 	}
 	
-	@Test
-	public void testCRUDProduct() {
+	/*@Test
+	public void testCRUDProduct () {
 		
 		// create operation
 		
 		product = new Product();
 		
-		product.setName("Oppo self 444");
+		product.setName("Oppo selfie 444");
 		product.setBrand("Oppo");
-		product.setDescription("This is a description for Oppo mobile!");
-		product.setUnitPrice(25000);
+		product.setDescription("Some description for Oppo");
+		product.setUnitPrice(2300);
 		product.setActive(true);
 		product.setCategoryId(3);
 		product.setSupplierId(3);
 		
-	//	assertEquals("Something went wrong inserting a new product!", true, productDAO.add(product));
-		assertEquals("dont", true, productDAO.add(product));
 		
+		assertEquals("Comment", true, productDAO.add(product));
+		
+		
+		// reading and updating 
 		
 		product = productDAO.get(2);
-		product.setName("Samsung Galaxy s7");
 		
-		assertEquals("Something went wrong updating a product!", true, productDAO.update(product));
+		product.setName("Samsung galaxy s9");
 		
-		assertEquals("Something went wrong deleting a product!", true, productDAO.delete(product));
+		assertEquals("Comment", true, productDAO.update(product));
 		
+		
+		assertEquals("Comment", true, productDAO.delete(product));
 		
 		// list
 		
-		assertEquals("Something went wrong while fetching(chercher) a product!", 5, productDAO.list().size()); //6 list of product + 1
+		assertEquals("Comment", 8, productDAO.list().size());
 		
+
+	}*/
+	
+	@Test
+	public void testListActiveProducts () {
+		
+		assertEquals("Something went wrong while fetching the list of product", 7, productDAO.listActiveProducts().size());
 		
 	}
 	
+	@Test
+	public void testListActiveProductsByCategory () {
+		
+		assertEquals("Something went wrong while fetching the list of product", 5, productDAO.listActiveProductsByCategory(3).size());
+		
+		assertEquals("Something went wrong while fetching the list of product", 2, productDAO.listActiveProductsByCategory(1).size());
+		
+	}
 	
-	/*@Test
-	public void testActiveProduct() {
-		assertEquals("Something went wrong while fetching(chercher) a product!", 3, productDAO.list().size()); //6 list of product + 1
+	@Test
+	public void testGetlatestActiveProduct () {
+		
+		assertEquals("Something went wrong while fetching the list of product", 3, productDAO.getLatestActiveProducts(3).size());
 		
 		
-	}*/
-	
-	
+	}
 
 }

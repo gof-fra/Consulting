@@ -77,6 +77,9 @@
 		    <!-- JavaScript -->
 		    <script src="${js}/jquery.js"></script>
 		    
+		    <!-- daatTable -->
+		    <script src="${js}/jquery.dataTables.js"></script>
+		    
 		    <script src="${js}/bootstrap.min.js"></script>
 		    
 		    <script src="${js}/myapp.js"></script>
