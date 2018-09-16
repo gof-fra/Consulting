@@ -7,6 +7,14 @@
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
 
+<%-- <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/> ">
+<img src="<c:url value="/resources/img/iphone.jpg"/>" />
+
+
+<script type="text/javascript" src="<c:url value="/resources/script/myscript.js"/>" >
+
+</script>
+ --%>
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />  
   
 
@@ -26,6 +34,8 @@
     <script>
     
     	window.menu = '${title}';
+    	
+    	window.contextRoot = '${contextRoot}';
     
     </script>
 
@@ -34,6 +44,9 @@
     
     <!-- Readable theme --Don't use -- -->
      <link href="${css}/" rel="stylesheet">
+     
+     <!-- dataTable -->
+    <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
     <link href="${css}/myapp.css" rel="stylesheet">
@@ -77,8 +90,12 @@
 		    <!-- JavaScript -->
 		    <script src="${js}/jquery.js"></script>
 		    
-		    <!-- daatTable -->
+		    <!-- daatTable plugin-->
 		    <script src="${js}/jquery.dataTables.js"></script>
+		    
+		    <!-- dataTable boostrap-->
+		    <script src="${js}/dataTables.bootstrap.js"></script>
+		    
 		    
 		    <script src="${js}/bootstrap.min.js"></script>
 		    
