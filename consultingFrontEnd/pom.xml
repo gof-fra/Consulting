@@ -24,15 +24,26 @@
       <scope>test</scope>
     </dependency>
     
-    
-    
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<!-- Spring -->
+	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>5.0.8.RELEASE</version>
+	    <exclusions>
+	    	<exclusion>
+	    		<groupId>commons-logging</groupId>
+	   		    <artifactId>commons-logging</artifactId>
+	    	</exclusion>
+	    </exclusions>
+	</dependency>
+	
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-webmvc</artifactId>
 	    <version>5.0.8.RELEASE</version>
 	</dependency>
-	
+		
 	
 	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 	<dependency>

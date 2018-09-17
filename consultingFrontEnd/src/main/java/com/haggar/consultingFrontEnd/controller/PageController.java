@@ -14,6 +14,8 @@ import com.haggar.consultingBackEnd.dto.Product;
 @Controller
 public class PageController {
 	
+	// private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO; 
 	
@@ -26,6 +28,11 @@ public class PageController {
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Home");
+		
+		//logger
+		
+	//	logger.info("Inside the page controller index method - INFO");
+	//	logger.debug("Inside the page controller index method - DEBUG");
 		
 		// passing the first category
 		
