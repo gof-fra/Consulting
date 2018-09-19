@@ -71,7 +71,7 @@
 									<th>Brand </th>
 									<th>Price </th>
 									<th>Qty. Available </th>
-									<th> Operation</th>
+									<th>Operation</th>
 								
 								</tr>
 							
@@ -86,7 +86,7 @@
 									<th>Brand </th>
 									<th>Price </th>
 									<th>Qty. Available </th>
-									<th> Operation</th>
+									<th>Operation</th>
 								
 								</tr>
 							

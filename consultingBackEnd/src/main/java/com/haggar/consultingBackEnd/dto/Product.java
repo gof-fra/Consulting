@@ -163,20 +163,6 @@ public class Product {
 				+ views + "]";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }
