@@ -2,6 +2,7 @@ package com.haggar.consultingFrontEnd.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import com.haggar.consultingBackEnd.dao.CategoryDAO;
 import com.haggar.consultingBackEnd.dao.ProductDAO;
 import com.haggar.consultingBackEnd.dto.Category;
 import com.haggar.consultingBackEnd.dto.Product;
+import com.haggar.consultingFrontEnd.util.FileUploadUtility;
 
 @Controller
 @RequestMapping("/manage")
@@ -70,7 +72,9 @@ public class ManagementController {
 	
 	// handling product submission
 	@RequestMapping(value = "/products", method=RequestMethod.POST) // product ->form
-	public String handlerProductSubmission(@Valid @ModelAttribute("product")Product mProduct, BindingResult results, Model model) {
+	public String handlerProductSubmission(@Valid @ModelAttribute("product")Product mProduct, BindingResult results, Model model,
+			HttpServletRequest request) {
+		
 		
 		
 		// check if there are any errors
@@ -92,6 +96,14 @@ public class ManagementController {
 		
 		// create a new product record
 		productDAO.add(mProduct);
+		
+		// uploading file
+		
+		if(!mProduct.getFile().getOriginalFilename().equals("")) {
+			
+			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+			
+		}
 		
 		return "redirect:/manage/products?operation=product";
 	}
