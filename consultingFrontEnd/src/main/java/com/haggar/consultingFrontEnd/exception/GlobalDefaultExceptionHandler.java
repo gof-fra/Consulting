@@ -59,10 +59,10 @@ public class GlobalDefaultExceptionHandler {
 		
 		// only for debugging your application   ---   more comment exception
 		
-		/*StringWriter sw = new StringWriter();
+		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
 		
-		ex.printStackTrace(pw);*/
+		ex.printStackTrace(pw);
 		
 		
 		mv.addObject("errorDescription", ex.toString());

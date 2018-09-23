@@ -21,7 +21,7 @@ import com.haggar.consultingBackEnd.dao.CategoryDAO;
 import com.haggar.consultingBackEnd.dao.ProductDAO;
 import com.haggar.consultingBackEnd.dto.Category;
 import com.haggar.consultingBackEnd.dto.Product;
-import com.haggar.consultingFrontEnd.util.FileUploadUtility;
+import com.haggar.consultingFrontEnd.utility.FileUploadUtility;
 
 @Controller
 @RequestMapping("/manage")
@@ -99,11 +99,13 @@ public class ManagementController {
 		
 		// uploading file
 		
+		
 		if(!mProduct.getFile().getOriginalFilename().equals("")) {
 			
 			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
 			
 		}
+		
 		
 		return "redirect:/manage/products?operation=product";
 	}

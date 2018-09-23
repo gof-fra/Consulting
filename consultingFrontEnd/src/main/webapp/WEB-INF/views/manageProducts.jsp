@@ -37,7 +37,8 @@
 					<sf:form class="form-horizontal" modelAttribute="product"
 					action="${contextRoot}/manage/products"
 					method="POST"
-					encetype="multipart/form-data"
+					enctype="multipart/form-data"
+					
 					>
 		
 						<div class="form-group">
@@ -104,7 +105,7 @@
 							</div>
 						</div>
 						
-						<!-- Image upload -->
+						<!-- image -->
 						<div class="form-group">
 						
 							<label class="control-label col-md-4" for="file"> Select an Image: </label>
@@ -115,7 +116,6 @@
 								
 							</div>
 						</div>
-						
 						
 						<!-- File image -->
 						<div class="form-group">

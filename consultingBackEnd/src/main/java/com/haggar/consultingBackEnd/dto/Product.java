@@ -46,12 +46,11 @@ public class Product {
 	private int purchases;
 	private int views;
 	
+	
 	@Transient
 	private MultipartFile file;
 	
-	
-	
-	
+
 	public MultipartFile getFile() {
 		return file;
 	}
