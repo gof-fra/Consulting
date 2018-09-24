@@ -22,6 +22,7 @@ import com.haggar.consultingBackEnd.dao.ProductDAO;
 import com.haggar.consultingBackEnd.dto.Category;
 import com.haggar.consultingBackEnd.dto.Product;
 import com.haggar.consultingFrontEnd.utility.FileUploadUtility;
+import com.haggar.consultingFrontEnd.validator.ProductValidator;
 
 @Controller
 @RequestMapping("/manage")
@@ -75,6 +76,9 @@ public class ManagementController {
 	public String handlerProductSubmission(@Valid @ModelAttribute("product")Product mProduct, BindingResult results, Model model,
 			HttpServletRequest request) {
 		
+		// validator 
+		
+		new ProductValidator().validate(mProduct, results);
 		
 		
 		// check if there are any errors
