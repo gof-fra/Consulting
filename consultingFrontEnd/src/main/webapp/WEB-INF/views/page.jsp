@@ -109,6 +109,10 @@
 		    
 		    <script src="${js}/bootstrap.min.js"></script>
 		    
+		    <!-- dialog table -->
+		    
+		    <script src="${js}/bootbox.min.js"></script>
+		    
 		    <script src="${js}/myapp.js"></script>
     
     </div>

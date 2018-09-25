@@ -190,6 +190,7 @@
 								<th>ID</th>
 								<th>&#160;</th>
 								<th>Name</th>
+								<th>Brand</th>
 								<th>Quantity</th>
 								<th>Unit Price</th>
 								<th>Active</th>
@@ -197,7 +198,7 @@
 							</tr>
 					</thead>
 					
-					<tbody>
+<%-- 					<tbody>
 							<tr>
 								<td> 4 </td>
 								<td> 
@@ -209,9 +210,9 @@
 								
 								<td> Macbook Pro</td>
 								
-								<td> 3 </td>
+								<td> 3 </td>  <!-- 3 quantity -->
 								
-								<td> &#8377; 54000.00/- </td>
+								<td> &#8377; 54000.00 /- </td>
 								
 								<td> 
 									<!-- toggle switch -->
@@ -245,7 +246,7 @@
 								
 								<td> 3 </td>
 								
-								<td> &#8377; 54000.00/- </td>
+								<td> &#8377; 54000.00 /- </td>
 								
 								<td> 
 									<!-- toggle switch -->
@@ -265,13 +266,14 @@
 							</tr>
 							
 							
-					</tbody>
+					</tbody> --%>
 					
 					<tfoot>
 							<tr>
 								<th>ID</th>
 								<th>&#160;</th>
 								<th>Name</th>
+								<th>Brand</th>
 								<th>Quantity</th>
 								<th>Unit Price</th>
 								<th>Active</th>

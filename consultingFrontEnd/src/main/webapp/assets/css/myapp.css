@@ -75,7 +75,9 @@ footer {
 	left: 52px;
 }
 
-
+/*
+	dataTableImg:  myapp.js
+*/
 .dataTableImg {
 	
 	width: 100px;
@@ -90,8 +92,10 @@ footer {
 	
 }
 
-
-.adminDatatableImg	 {
+/*
+	myapp.js   ---> code
+*/
+.adminDataTableImg	 {
 	
 	height: 50px;
 	width: 50px;
@@ -129,7 +133,7 @@ footer {
 	left: 0;
 	cursor: pointer;
 	background-color: #ccc;
-	border-radius: 50px;
+	border-radius: 90%;
 	transition: .5s;
 	
 }
@@ -143,7 +147,7 @@ footer {
 	content: "";
 	left: 5px;
 	bottom: 5px;
-	border-radius: 50%;
+	border-radius: 90%;
 	transition: .5s;
 	
 }
