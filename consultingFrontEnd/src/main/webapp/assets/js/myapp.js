@@ -293,7 +293,7 @@ $(function() {
 								
 								var str = '';
 								
-								str += '<a href="${contextRoot}/manage/'+data+'/product" class="btn btn-warning">';
+								str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning">';
 								str += '<span class="glyphicon glyphicon-pencil"> </span> </a>';
 								
 								

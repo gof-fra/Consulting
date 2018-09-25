@@ -39,7 +39,7 @@ public class ManagementController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ManagementController.class);
 	
-	
+	// manage product
 	@RequestMapping(value = "/products", method=RequestMethod.GET)
 	public ModelAndView showManageProducts(@RequestParam(name="operation", required=false) String operation) {
 		
@@ -72,16 +72,44 @@ public class ManagementController {
 		
 	}
 	
+	// updating product
+	@RequestMapping(value="/{id}/product", method=RequestMethod.GET)
+	public ModelAndView showEditProducts(@PathVariable int id) {
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		
+		mv.addObject("userClickManageProducts", true);
+		mv.addObject("title", "Manage Products");
+		
+		// fetch product in database
+		Product nProduct = productDAO.get(id);
+		// set the product fetching from database
+		mv.addObject("product", nProduct);
+		return mv;
+		
+	}
+	
 	
 	// handling product submission
 	@RequestMapping(value = "/products", method=RequestMethod.POST) // product ->form
 	public String handlerProductSubmission(@Valid @ModelAttribute("product")Product mProduct, BindingResult results, Model model,
 			HttpServletRequest request) {
 		
-		// validator 
+		// vaildation for new product 
 		
-		new ProductValidator().validate(mProduct, results);
-		
+		if(mProduct.getId() == 0) {
+			
+			new ProductValidator().validate(mProduct, results);
+			
+		}
+		else {
+			if(!mProduct.getFile().getOriginalFilename().equals("")) {
+				
+				new ProductValidator().validate(mProduct, results);
+				
+			}
+		}
 		
 		// check if there are any errors
 		
@@ -100,9 +128,15 @@ public class ManagementController {
 		
 		logger.info(mProduct.toString());
 		
-		// create a new product record
-		productDAO.add(mProduct);
 		
+		if(mProduct.getId() == 0) {
+			// create a new product record if id is 0
+				productDAO.add(mProduct);
+		}
+		else {
+			// updating the product if id is not 0
+				productDAO.update(mProduct);
+		}
 		// uploading file
 		
 		
