@@ -179,15 +179,13 @@ public class ManagementController {
 						 :  "You are successfully active the product with id " + product.getId();
 	}
 	
-	// category submission
+	//
 	@RequestMapping(value="/category", method=RequestMethod.POST)
 	public String handleCategorySubmission(@ModelAttribute Category category) {
 		
-		// add new category
 		categoryDAO.add(category);
 		
 		return "redirect:/manage/products?operation=category";
-		
 	}
 	
 	// returning categories for all the request mapping 
@@ -202,7 +200,7 @@ public class ManagementController {
 	public Category getCategory() {
 		
 		return new Category();
-		
 	}
+	
 	
 }
