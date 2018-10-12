@@ -39,13 +39,13 @@ public class Product {
 	@Column(name = "category_id")
 	@JsonIgnore
 	private int categoryId;
-	@Column(name = "supplier_id")
+	@Column(name = "supplier_id")	
 	@JsonIgnore
 	private int supplierId;
 	private int purchases;
 	private int views;
 	
-	
+	// file part
 	@Transient
 	private MultipartFile file;
 	
@@ -176,6 +176,7 @@ public class Product {
 	public void setViews(int views) {
 		this.views = views;
 	}
+	
 
 	@Override
 	public String toString() {

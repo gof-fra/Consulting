@@ -132,13 +132,15 @@
 									
 								/>
 								
-								<c:if test="${product.id == 0}">
+								<!-- add category -->
+								
+								<%-- <c:if test="${product.id == 0}">
 								
 									<div class="text-right">
 										<br />
 										<button type="button" data-toggle="modal" data-target="#myCategoryModal" class="btn btn-warning btn-xs">Add New Category</button>
 									</div>
-								</c:if>
+								</c:if> --%>
 																
 							</div>
 						</div>
@@ -303,7 +305,7 @@
 	</div>
 	
 	
-	<div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">
+	<%-- <div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header"> <!-- Modal header	 -->
@@ -346,6 +348,6 @@
 		
 		</div>
 	</div>
-	
+	 --%>
 </div>
 	

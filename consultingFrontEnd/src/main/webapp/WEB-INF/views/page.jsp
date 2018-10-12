@@ -100,6 +100,9 @@
 		    <!-- JavaScript -->
 		    <script src="${js}/jquery.js"></script>
 		    
+		    <!-- jquery validation  -->
+		    <script src="${js}/jquery.validate.min.js"></script>
+		    
 		    <!-- daatTable plugin-->
 		    <script src="${js}/jquery.dataTables.js"></script>
 		    

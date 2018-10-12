@@ -71,6 +71,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 			properties.put("hibernate.show_sql", "true");
 			properties.put("hibernate.format_sql", "true");
 			
+			
+			// user add  -> create
+			// update cart -> update
+			
+			properties.put("hibernate.hbm2ddl.auto", "update");
+			
+			
 			return properties;
 		}
 		

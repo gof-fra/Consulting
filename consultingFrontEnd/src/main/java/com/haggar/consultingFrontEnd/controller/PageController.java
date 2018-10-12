@@ -144,6 +144,17 @@ public class PageController {
 	}
 	
 	
+	// sin up part
+	
+	@RequestMapping( value = {"/register"})
+	public ModelAndView register() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "About Us");  // redirect
+		mv.addObject("userClickAbout", true); // redirect
+		
+		
+		return mv;
+	}
 	
 	
 	
