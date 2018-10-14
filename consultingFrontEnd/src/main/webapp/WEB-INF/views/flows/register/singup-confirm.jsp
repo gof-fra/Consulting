@@ -12,6 +12,14 @@
 			
 				<div class="panel-body">
 					
+					<div class="text-center">
+					
+						<h4>${registerModel.user.firstName} ${registerModel.user.lastName}</h4>
+						<h5>Email: ${registerModel.user.email}</h5>
+						<h5>Contact Number: ${registerModel.user.contactNumber}</h5>
+						<h5>Role: ${registerModel.user.role}</h5>
+						
+					</div>
 					
 					
 				</div>
@@ -35,7 +43,12 @@
 			
 				<div class="panel-body">
 				
-					
+					<div class="text-center">
+						<h4>${registerModel.billing.addressLineOne}</h4>
+						<h4>${registerModel.billing.addressLineTwo}</h4>
+						<h4>${registerModel.billing.city} -${registerModel.billing.codePostal}</h4>
+						<h4>${registerModel.billing.state} - ${registerModel.billing.country}</h4>
+					</div>
 					
 				</div>
 				

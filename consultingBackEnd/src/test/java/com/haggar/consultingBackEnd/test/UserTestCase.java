@@ -255,7 +255,6 @@ public class UserTestCase {
 		
 	}*/
 	
-	
 	@Test
 	public void testGetAddress() {
 		
@@ -268,6 +267,20 @@ public class UserTestCase {
 		assertEquals("Failed to fetch the list of address and size does match!", "Sousse", 
 				userDAO.getBillingAddress(user).getCity());
 		
+		
+	
+		
+		
+	}
+	@Test
+	public void addCart() {
+		
+		cart = new Cart();
+		cart.setUser(user);
+		
+		// add cart 
+		
+		assertEquals("Failed to add cart!", true, userDAO.addCart(cart));
 		
 	}
 	
