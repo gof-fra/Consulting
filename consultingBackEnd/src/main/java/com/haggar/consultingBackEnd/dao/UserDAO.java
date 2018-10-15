@@ -30,7 +30,7 @@ public interface UserDAO {
 	
 	// add cart  ->1
 	// update cart ->2
-	boolean addCart(Cart cart);
+	// boolean addCart(Cart cart);
 	
 	boolean updateCart(Cart cart);
 

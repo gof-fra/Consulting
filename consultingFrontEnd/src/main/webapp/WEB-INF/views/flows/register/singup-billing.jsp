@@ -52,14 +52,14 @@
 								</div>
 							</div>
 							
-							<%-- <div class="form-group">
-								<label class="control-label col-md-4" for="postalCode">Postal Code</label>
+							<div class="form-group">
+								<label class="control-label col-md-4" for="codePostal">Postal Code</label>
 								<div class="col-md-8">
-									<sf:input type="text" path="postalCode" class="form-control"
+									<sf:input type="text" path="codePostal" class="form-control"
 										placeholder="XXXXXX" />
-									<sf:errors path="postalCode" cssClass="help-block" element="em"/> 
+									<sf:errors path="codePostal" cssClass="help-block" element="em"/> 
 								</div>
-							</div>	 --%>						
+							</div>	 					
 						
 							<div class="form-group">
 								<label class="control-label col-md-4" for="state">State</label>

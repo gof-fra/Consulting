@@ -1,6 +1,8 @@
 package com.haggar.consultingFrontEnd.handler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
 import com.haggar.consultingBackEnd.dao.UserDAO;
@@ -29,6 +31,41 @@ public class RegisterHandler {
 	public void addBilling(RegisterModel registerModel, Address billing) {
 		
 		registerModel.setBilling(billing);
+	}
+	
+	public String validatorUser(User user, MessageContext error) {
+		
+		String transitionValue = "success";
+		
+		// knowing if password confirmed
+		
+		if(!(user.getPassword().equals(user.getConfirmPassword()))) {
+			
+			error.addMessage(new MessageBuilder()
+					.error()
+						.source("confirmPassword")
+							.defaultText("Not the same password!")
+								.build());
+			
+			transitionValue = "failure"; 
+		}
+		
+		// // knowing if email confirmed
+		
+		if(userDAO.getByEmail(user.getEmail())!=null) {
+			
+			error.addMessage(new MessageBuilder()
+					.error()
+						.source("email")
+							.defaultText("This email is already exist!")
+								.build());
+			
+			transitionValue = "failure"; 
+			
+		}
+		
+		
+		return transitionValue;
 	}
 	
 	

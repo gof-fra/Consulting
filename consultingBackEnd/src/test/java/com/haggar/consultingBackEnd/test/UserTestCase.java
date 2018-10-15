@@ -272,7 +272,7 @@ public class UserTestCase {
 		
 		
 	}
-	@Test
+	/*@Test
 	public void addCart() {
 		
 		cart = new Cart();
@@ -283,7 +283,7 @@ public class UserTestCase {
 		assertEquals("Failed to add cart!", true, userDAO.addCart(cart));
 		
 	}
-	
+	*/
 	
 
 }

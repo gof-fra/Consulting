@@ -5,10 +5,14 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class User implements Serializable{
@@ -23,17 +27,50 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name = "first_name")
+	@NotBlank(message = "Please enter the first name!")
 	private String firstName;
+	
 	@Column(name = "last_name")
+	@NotBlank(message = "Please enter the last name!")
 	private String lastName;
+	
+	@NotBlank(message = "Please enter your email address!")
 	private String email;
 	@Column(name = "contact_number")
+	@NotBlank(message = "Please enter your contact number!")
 	private String contactNumber;
+	
 	private String role;
+	
+	@NotBlank(message = "Please enter your password!")
 	private String password;
+	
+
 	private boolean enabled = true;
 	
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	// confirmed password transient
+	@Transient
+	private String confirmPassword;
+	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+	
+	
+	//----------------
+	
+	
+	
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 	private Cart cart;
 	
 	
